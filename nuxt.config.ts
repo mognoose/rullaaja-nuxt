@@ -4,5 +4,8 @@ export default defineNuxtConfig({
   devServer: {
     port: Number(process.env.NUXT_PORT ?? 8080),
   },
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
 })

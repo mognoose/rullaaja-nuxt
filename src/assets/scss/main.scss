@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Cuprum:wght@400;700&display=swap");
+
+body {
+    font-family: "Cuprum", sans-serif;
+    background-color: rgb(33, 33, 33);
+    color: #999;
+}
+
+h1 {
+    color: rgb(5, 111, 92);
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+}
