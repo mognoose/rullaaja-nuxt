@@ -1,0 +1,8 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  srcDir: 'src',
+  devServer: {
+    port: Number(process.env.NUXT_PORT ?? 8080),
+  },
+  devtools: { enabled: true }
+})
