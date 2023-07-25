@@ -3,15 +3,15 @@ import { Client, GatewayIntentBits, REST, Routes } from 'discord.js';
 import { commands } from './commands';
 
 const runtimeConfig = useRuntimeConfig()
-const rest = new REST({ version: '10' }).setToken(runtimeConfig.TOKEN);
+const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] });
-client.login(runtimeConfig.TOKEN);
+client.login(process.env.TOKEN);
 
 (async () => {
     try {
         console.log('Started refreshing application (/) commands.');
     
-        await rest.put(Routes.applicationCommands(runtimeConfig.APPID), { body: commands });
+        await rest.put(Routes.applicationCommands(process.env.APPID), { body: commands });
     
         console.log('Successfully reloaded application (/) commands.');
     } catch (error) {
