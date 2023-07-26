@@ -1,4 +1,3 @@
-import { defineCorsEventHandler } from '@nozomuikuta/h3-cors';
 import { defineEventHandler } from 'h3';
 import { Client, GatewayIntentBits, REST, Routes } from 'discord.js';
 import { commands } from './commands';
@@ -22,15 +21,13 @@ client.login(process.env.TOKEN);
 
 export default defineEventHandler(async event => {
     const body = await readBody(event)
-    const corsOptions = {
+    const corsOptions: Object = {
         origin: '*',
         methods: '*',
         allowHeaders: '*',
         exposeHeaders: '*',
     }
     handleCors(event, corsOptions);
-
-    defineCorsEventHandler(corsOptions);
 
     setHeader(event, 'Access-Control-Allow-Origin', '*')
     setHeader(event, "Access-Control-Allow-Headers", '*',)

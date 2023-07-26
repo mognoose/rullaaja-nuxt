@@ -8,7 +8,12 @@ export default defineNuxtConfig({
   app: {
     pageTransition: { name: 'page', mode: 'out-in' }
   },
-  routeRules: {
-    'api/**': {cors: true, headers: { 'access-control-allow-methods': 'POST' }}
-  },
+  nitro: {
+    routeRules: {
+      'api/**': {
+        cors: true,
+        headers: { 'access-control-allow-methods': 'POST' }
+      }
+    },
+  }
 })
