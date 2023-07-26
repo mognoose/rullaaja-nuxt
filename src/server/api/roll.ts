@@ -29,6 +29,11 @@ export default defineEventHandler(async event => {
     }
     handleCors(event, corsOptions);
 
+    setHeader(event, 'Access-Control-Allow-Origin', '*')
+    setHeader(event, "Access-Control-Allow-Headers", '*',)
+    setHeader(event, 'Access-Control-Allow-Methods', 'OPTIONS, POST, GET',)
+    setHeader(event, 'Access-Control-Max-Age', 2592000,)
+    
     const dice = body.dice || 20;
     const channelid = body.channelid || '479199736776228865';
     const user = body.name || 'unknown';
