@@ -10,6 +10,7 @@
     </select>
     <button @click="onRoll()">roll {{dice}}</button>
     <p :class="{loading: loading}">Result: {{ roll?.result }}</p>
+
   </div>
 </template>
 
@@ -24,8 +25,10 @@ export default {
   },
   methods: {
     async onRoll() {
+      const api = 'https://rullaaja-nuxt.vercel.app/api/roll';
+      // const api = 'http://localhost:8080/api/roll';
       this.loading = true;
-      this.roll = await $fetch('api/roll', { query: { dice: this.dice } });
+      this.roll = await $fetch(api, { method: 'POST', body: { dice: this.dice } });
       this.loading = false;
     }
   },

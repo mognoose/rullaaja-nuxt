@@ -15,12 +15,19 @@ client.login(process.env.TOKEN);
     
         console.log('Successfully reloaded application (/) commands.');
     } catch (error) {
-        console.error(error);
+        console.error(error);  
     }
 })();
 
 export default defineEventHandler(async event => {
     const body = await readBody(event)
+    const corsOptions = {
+        origin: '*',
+        methods: '*',
+        allowHeaders: '*',
+        exposeHeaders: '*',
+    }
+    handleCors(event, corsOptions);
 
     const dice = body.dice || 20;
     const channelid = body.channelid || '479199736776228865';
