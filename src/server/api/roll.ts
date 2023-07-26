@@ -33,7 +33,8 @@ export default defineEventHandler(async event => {
     setHeader(event, "Access-Control-Allow-Headers", '*',)
     setHeader(event, 'Access-Control-Allow-Methods', 'OPTIONS, POST, GET',)
     setHeader(event, 'Access-Control-Max-Age', 2592000,)
-    
+    setHeader(event, 'Access-Control-Allow-Headers', 'Origin, Content-Type, X-Auth-Token')
+
     const dice = body.dice || 20;
     const channelid = body.channelid || '479199736776228865';
     const user = body.name || 'unknown';
